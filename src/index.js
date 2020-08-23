@@ -1,25 +1,31 @@
-// immutability
-// once created, cannot be changed or mutated !
+// immutability - Updating objects
 
-let name = "mosh"
-let newName = name.toUpperCase();
+const person = { 
+    name: "john",
+    address : {
+        country: "USA",
+        city: "San"
+    }
+};
 
-// why use immutability
+// copy to new obj 
+const updated = Object.assign({} , person , { name : "Bob" , age: 30});
 
-// should we always favor immutability
+// use spread opreator 
 
-// Pros 
-// 1- predictability 
-// 2- faster change detection
-// 3- concurrency
+const updated2 = { ...person, name: "Bob", age: 30 };
+updated2.address.city = "new york";
 
+//it will change the original person obj 
+//cus spread operator make a shadow copy to the updated obj
+const updated2 = { 
+    ...person,
+    address: {
+        ...person.address,
+        city:"new york"
+    },
+    name: "Bob",
+    age: 30 
+};
 
-// Cons
-// 1- performance
-// 2- memory overhead 
-
-
-// structural sharing 
-
-// if you are bulding app with redux , {{ you shouldn't mutate data }}
-// outside of redux do what you want 
+console.log(updated2);
