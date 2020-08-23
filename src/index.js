@@ -1,31 +1,20 @@
-// immutability - Updating objects
+// immutability - Updating Arrays
 
-const person = { 
-    name: "john",
-    address : {
-        country: "USA",
-        city: "San"
-    }
-};
+const numbers = [1, 2, 3];
 
-// copy to new obj 
-const updated = Object.assign({} , person , { name : "Bob" , age: 30});
+//adding 
+const index = numbers.indexOf(2);
+const added = [ ...numbers.slice(0,index), 4, ...numbers.slice(index)]
 
-// use spread opreator 
+console.log(added)
 
-const updated2 = { ...person, name: "Bob", age: 30 };
-updated2.address.city = "new york";
 
-//it will change the original person obj 
-//cus spread operator make a shadow copy to the updated obj
-const updated2 = { 
-    ...person,
-    address: {
-        ...person.address,
-        city:"new york"
-    },
-    name: "Bob",
-    age: 30 
-};
+//removing 
+const removed = numbers.filter((n) => n !== 2);
 
-console.log(updated2);
+console.log(removed);
+
+//updating 
+const updated = numbers.map((n) => n === 2 ? 20 : n) ;
+
+console.log(updated);
