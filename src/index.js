@@ -1,6 +1,6 @@
-//  actions types
+//  action creators
 import store from './store';
-import * as actions from './actionTypes';
+import * as actions from './actions';
 
 // it called every time the state of the store got changed 
 const unsubscribe = store.subscribe( () => {
@@ -11,25 +11,16 @@ const unsubscribe = store.subscribe( () => {
 // ui elements just subscribed to the store 
 //so they get notified when the state changed 
 
-// action should have 2 props
-store.dispatch({
-    type: actions.BUG_ADDED ,
-    payload: {
-        description: "Bug1"
-    }
-});
 
-unsubscribe();
+// action should have 2 props
+store.dispatch(actions.bugAdded("Bug1"));
+
 
 //unsubscribe the ui elements  
 // if we are in new page and ui elements not gonna be vaisable 
 // we should unsubscribe them from the store 
 
-store.dispatch({
-  type: actions.BUG_REMOVED,
-  payload: {
-    id: 1,
-  },
-});
+store.dispatch(actions.bugRemoved(1));
 
 
+unsubscribe();
