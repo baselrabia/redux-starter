@@ -1,5 +1,6 @@
-//  subscribing to the store 
+//  actions types
 import store from './store';
+import * as actions from './actionTypes';
 
 // it called every time the state of the store got changed 
 const unsubscribe = store.subscribe( () => {
@@ -12,7 +13,7 @@ const unsubscribe = store.subscribe( () => {
 
 // action should have 2 props
 store.dispatch({
-    type: "bugAdded" ,
+    type: actions.BUG_ADDED ,
     payload: {
         description: "Bug1"
     }
@@ -25,7 +26,7 @@ unsubscribe();
 // we should unsubscribe them from the store 
 
 store.dispatch({
-  type: "bugRemoved",
+  type: actions.BUG_REMOVED,
   payload: {
     id: 1,
   },
