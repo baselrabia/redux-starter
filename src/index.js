@@ -1,20 +1,22 @@
-// immutability - Updating Arrays
+// enforcing immutability 
+//u cant change props directly 
+// not pure functions 
+// so there are libraries like immutable,immer and mori
 
-const numbers = [1, 2, 3];
+// enforcing immutability - using immutable.js
+import {Map} from "immutable";
 
-//adding 
-const index = numbers.indexOf(2);
-const added = [ ...numbers.slice(0,index), 4, ...numbers.slice(index)]
+let book = Map({ title: "harry potter"});
 
-console.log(added)
+function publish(book) {
+   return book.set("isPublished", true) ;
+}
 
+// reassign book variable
+book = publish(book);
 
-//removing 
-const removed = numbers.filter((n) => n !== 2);
+console.log(book.get("title"));
 
-console.log(removed);
+// return plain js obj 
 
-//updating 
-const updated = numbers.map((n) => n === 2 ? 20 : n) ;
-
-console.log(updated);
+console.log(book.toJS());
