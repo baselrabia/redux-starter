@@ -1,16 +1,18 @@
-// Higher-order Functions 
+// Functions Composition
 
-// - map is Higher order function 
-//cus it take function as an argument 
 
-let numbers = [1, 2,3];
-numbers.map( number => {
-    number * 2
-}) 
 
-// another higher order fun
-//take function as an argument 
+let input = "   javascript  ";
+let output = "<div>" + input.trim() + "</div>";
 
-setTimeout(() => {
-    console.log("hello")
-}, 1000);
+// reusable functions 
+
+//trim 
+//wrapInDev
+//toLowerCase
+
+const trim = str => str.trim();
+const wrapInDev = str => `<div> ${str} </div>`;
+const toLowerCase = (str) => str.toLowerCase();
+
+const result = wrapInDev(toLowerCase(trim(input)));
