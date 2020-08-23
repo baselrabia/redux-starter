@@ -1,8 +1,38 @@
-//  first redux app
+//  designing the store 
 
-// setup steps 
+//store design for bugs so u will nedd bugs reducer 
+//we focous here on single slice and the simple structure 
+//that allow us to study redux 
+//and see all it's build-in bugs in action 
 
-// 1- design the store 
-// 2- define the action -- what actions can user preform throw the app 
-// 3- create a reducer -- take action then return updated state
-// 4- set up the store  -- base on your reducer
+[
+  {
+    id: 1,
+    description: "",
+    resolved: false,
+  },
+  {
+    id: 2,
+    description: "",
+    resolved: false,
+  },
+  {
+    id: 3,
+    description: "",
+    resolved: false,
+  },
+
+];
+
+// in real app
+// u can refactor this structre to something like that 
+{
+    bugs: [
+        {
+            id: 1,
+            description: "",
+            resolved: false
+        }
+    ],
+    currentUser: {}
+}
