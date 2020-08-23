@@ -1,16 +1,25 @@
-// pure functions
-// same args => same result 
+// immutability
+// once created, cannot be changed or mutated !
 
-// no random values
-// no current data/time 
-// no global state ( Dom, Files ,DB , etc)
-// no mutation of parmeters
+let name = "mosh"
+let newName = name.toUpperCase();
 
-// our redux reducer should be pure funs
+// why use immutability
 
-// #Benefits 
+// should we always favor immutability
 
-// 1- self-documenting
-// 2- easily testable
+// Pros 
+// 1- predictability 
+// 2- faster change detection
 // 3- concurrency
-// 4- cacheable
+
+
+// Cons
+// 1- performance
+// 2- memory overhead 
+
+
+// structural sharing 
+
+// if you are bulding app with redux , {{ you shouldn't mutate data }}
+// outside of redux do what you want 
