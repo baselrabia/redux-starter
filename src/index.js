@@ -1,24 +1,19 @@
-//  defining the actions
+//  despatcing actions
+import store from './store';
 
-// add a bug 
-// mark as resolved 
-// delete a bug 
-
-{
-    type: "bugAdded",
+// action should have 2 props
+store.dispatch({
+    type: "bugAdded" ,
     payload: {
-         description:"..."
+        description: "Bug1"
     }
-   
-}
+});
 
-{
-    type: "bugRemoved",
-    payload: {
-         id: 1
-    }
-   
-}
+store.dispatch({
+  type: "bugRemoved",
+  payload: {
+    id: 1,
+  },
+});
 
-// type is the name of action 
-// payload is the data that u want to change in reducer
+console.log(store.getState());
