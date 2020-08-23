@@ -3,20 +3,20 @@
 // not pure functions 
 // so there are libraries like immutable,immer and mori
 
-// enforcing immutability - using immutable.js
-import {Map} from "immutable";
+// enforcing immutability - using immer.js
+import {produce} from "immer";
 
-let book = Map({ title: "harry potter"});
+let book = { title: "harry potter"};
 
 function publish(book) {
-   return book.set("isPublished", true) ;
+
+    return produce(book, draftBook => {
+        draftBook.isPublished = true;
+    })
 }
 
-// reassign book variable
-book = publish(book);
+let updated = publish(book);
+ 
+console.log(book);
 
-console.log(book.get("title"));
-
-// return plain js obj 
-
-console.log(book.toJS());
+console.log(updated);
