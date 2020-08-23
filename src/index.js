@@ -1,28 +1,16 @@
-// Function as first-class citizens
+// Higher-order Functions 
 
-// - assign function as a variable 
-function sayHello() {
-    return "hello world" 
-}
+// - map is Higher order function 
+//cus it take function as an argument 
 
-let fn = sayHello;
-fn()
-sayHello()
+let numbers = [1, 2,3];
+numbers.map( number => {
+    number * 2
+}) 
 
-// - pass function as an argument
+// another higher order fun
+//take function as an argument 
 
-function greet(fnMessage) {
-    console.log(fnMessage())
-}
-
-greet(sayHello);
-
-// - return function from other function 
-function sayHello() {
-  return function () {
-     return "hello world"
-  }
-}
-
-let fn = sayHello()
-let message = fn()
+setTimeout(() => {
+    console.log("hello")
+}, 1000);
