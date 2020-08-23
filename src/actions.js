@@ -17,3 +17,10 @@ export const bugRemoved = (id) => ({
       id,
     },
 });
+
+export const bugResolved = (id) => ({
+  type: actions.BUG_RESOLVED,
+  payload: {
+    id,
+  },
+});

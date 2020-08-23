@@ -1,4 +1,4 @@
-//  action creators
+//  exercies implement resolving a bug 
 import store from './store';
 import * as actions from './actions';
 
@@ -15,6 +15,7 @@ const unsubscribe = store.subscribe( () => {
 // action should have 2 props
 store.dispatch(actions.bugAdded("Bug1"));
 
+store.dispatch(actions.bugResolved(1));
 
 //unsubscribe the ui elements  
 // if we are in new page and ui elements not gonna be vaisable 
